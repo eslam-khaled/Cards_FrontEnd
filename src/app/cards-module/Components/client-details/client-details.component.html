@@ -1,0 +1,45 @@
+
+<div class="form-control container" dir="rtl">
+<h5 style="text-align: center; margin-bottom: 3%;">بيانات الزبون</h5>
+        <div dir="rtl">
+         
+          <div style="margin:0%  65% 2% 0%;" class="col-md-4">
+            <label disabled type="text"><b>رقم الحساب : {{ClientDetailsForm.accountNumber}}</b></label>
+           </div>
+
+          <div class="row col-md-12 row">
+        <div class="col-md-4">
+          <input disabled type="text" class="clo-md-4 form-control" placeholder="الاسم بالكامل : {{ClientDetailsForm.firstName}} {{ClientDetailsForm.secondName}} {{ClientDetailsForm.familyName}}">
+           <label class="clo-md-6"></label>
+          </div>
+      
+          <div class="col-md-4">
+            <input disabled type="text" class="clo-md-4 form-control" placeholder="تاريخ الميلاد : {{ClientDetailsForm.birthDate}} | {{ClientDetailsForm.age}} عام">
+           </div>
+          
+        </div>
+
+        <form [formGroup]="ClientAddressForm" (ngSubmit)="onFormSubmit(ClientAddressForm.value)">
+        <div class="row col-md-12 row">
+
+          <div class="col-md-4">
+           <input disabled type="text" class="clo-md-4 form-control" placeholder="نوع الهوية ورقمها: {{ClientDetailsForm.personIdentityType}} - {{ClientDetailsForm.personIdentity}}">
+          </div>
+       
+          <div class="col-md-4">
+            <label style="position: absolute; margin-right: -88%; margin-top: 2%; color: gray;">العنوان :</label>
+            <input type="text" formControlName="Address" style="text-align: center;" class="form-control" [(ngModel)]="ClientDetailsForm.address" >
+          </div>
+
+          <div align="left" class="col-md-4">
+            <button type="submit" class="btn btnBackground" style="position: absolute; left: 0rem; color: white; width: 41%;"><b>تأكيد</b></button>
+           </div>
+
+           </div>
+          </form>
+           
+        </div>
+
+ 
+
+      </div>

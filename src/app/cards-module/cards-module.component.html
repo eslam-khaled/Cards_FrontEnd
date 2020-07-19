@@ -1,0 +1,71 @@
+
+<div dir="rtl" style="margin:10px ;"id="Body">
+    
+    <form [formGroup]="cardForm" (ngSubmit)="onFormSubmit(cardForm.value)" style="margin-top: 5%;">
+
+        <div  class="form-group row col-md-12">
+
+          <div style="padding-right: 10%;" class="col-md-6 row">
+            <label class="col-md-4 labelAsterisk"><b>اختر نوع البحث</b></label>
+            <select formControlName="AccessType"  (change)="onSelectedValueChange(cardForm.value)" class="form-control col-md-3">
+                <option  value="1">رقم الحساب</option>
+                <option value="2">رقم البطاقة</option>
+                <option value="3">رقم الهويه</option>
+            </select>
+            
+          </div>
+
+          <div class="col-md-6">
+            <div *ngIf = "selectedTypeAccount" class="form-group col-md-12 row center">
+              <label class="col-md-3 labelAsterisk"><b>رقم الحساب</b></label>
+              <input type="text" class="form-control col-md-6" formControlName="accountNumber" placeholder="رقم الحساب"
+              onkeypress="if(!(event.charCode>=48 && event.charCode <= 57))return false;" maxlength="13">
+              
+            </div>
+    
+            <div *ngIf = "selectedTypeCard" class="form-group col-md-12 row center">
+              <label class="col-md-3"><b>رقم البطاقة</b></label>
+              <input type="text" class="form-control col-md-6" formControlName="cardNumber" placeholder="رقم البطاقة"
+              onkeypress="if(!(event.charCode>=48 && event.charCode <= 57))return false;" maxlength="16">
+              
+            </div>
+    
+            <div *ngIf = "selectedTypeId" class="form-group col-md-12 row center">
+              <label class="col-md-3"><b>رقم الهويه</b></label>
+              <input type="text" class="form-control col-md-6" formControlName="identityNumber" placeholder="رقم الهويه"
+              onkeypress="if(!(event.charCode>=48 && event.charCode <= 57))return false;" maxlength="12">
+            </div>
+          </div>
+          </div>
+
+        <button type="submit" class="btn btnBackground" style="position: relative; margin-left: 19%; color: white; width: 11%;"><b>بحث</b></button>
+      </form>
+      
+    </div>
+
+
+<app-client-details *ngIf="ShowClientDetails" 
+[ClientDetailsForm]="ClientDetailsForm"  
+[accountNumber]="accountNumber"
+[cardNumber]="cardNumber"
+[identityNumber]="identityNumber"
+[DrpSelectType]="DrpSelectType">
+</app-client-details>
+
+<app-cards-list *ngIf="ShowCardsList" 
+[cardDetailsForm]="cardDetailsForm" 
+[accountNumber]="accountNumber"
+[cardNumber]="cardNumber"
+[identityNumber]="identityNumber"
+[DrpSelectType]="DrpSelectType"
+(toggleViews)="ChildEvent($event)">
+</app-cards-list>
+
+
+<app-card-details
+*ngIf="ShowCardDetails"
+>
+
+</app-card-details>
+
+

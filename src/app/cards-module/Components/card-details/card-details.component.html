@@ -1,0 +1,97 @@
+
+        <div dir="rtl" style="margin-top: 1%;" class="form-control container" >
+            <h6 align="right" style="margin: 2% 4% 1%;">بيانات البطاقة</h6>
+<hr style="width: 70%;"> 
+
+
+<div style="margin-left: 1.6%;">
+ <label class="clo-md-6"><b> رقم البطاقة :</b></label> 
+ <label style="padding-right: 3%;" class="clo-md-6">{{cardNumberView}}</label>
+</div>
+
+<div style="margin-left: 3%;">
+ <label  class="clo-md-6"><b> رقم الحساب الخاص البطاقة :</b></label> 
+ <label style="padding-right: 3%;" class="clo-md-6">{{card.accountNumber}}</label >
+</div>
+
+<div style="margin-left: 9.5%; margin-bottom: 5%;">
+    <label  class="clo-md-6"><b> حاله البطاقه :</b></label> 
+    <label style="padding-right: 3%;" class="clo-md-6">{{cardStatus}}</label >
+   </div>
+
+<div tyle="padding-top: 2%; margin-top: 10%" class="row col-md-12 form-group">
+
+    <div style="text-align: right;" class="col-md-4">
+        <label class="clo-md-6"><b>نوع البطاقة :</b> </label> 
+        <label style="padding-right: 3%;" class="clo-md-6">{{card.cardType}}</label>
+       </div>
+
+<div style="text-align: center;" class="col-md-4">
+ <label class="clo-md-6"><b>الاسم علي البطاقة :</b></label> 
+ <label style="padding-right: 3%;" class="clo-md-6">{{card.firstNameOnCard}} {{card.secondNameOnCard}} {{card.familyNameOnCard}}</label>
+</div>
+
+<div  class="col-md-4" style="padding-left: 14%;" >
+ <label class="clo-md-6"><b>تاريخ الاصدار :</b> </label> 
+ <label style="padding-right: 3%;" class="clo-md-6">{{card.startDate}}</label>
+</div>
+</div>
+ 
+
+<div  class="row col-md-12 form-group">
+    <div style="text-align: right;" class="col-md-4">
+     <label class="clo-md-6"><b>حد السحب :</b> </label> 
+     <label style="padding-right: 3%;" class="clo-md-6">{{card.dailyCashLimit}}</label>
+    </div>
+    
+    <div style="padding-left: 17%;" class="col-md-4">
+        <label  class="clo-md-6"><b>درجه البطاقة :</b> </label> 
+        <label style="padding-right: 3%;" class="clo-md-6">{{cardLevel}}</label>
+       </div>
+
+
+       <div style="text-align: center; padding-left: 13.5%;" class="col-md-4">
+        <label class="clo-md-6"><b>تاريخ الانتهاء :</b> </label> 
+        <label style="padding-right: 3%;" class="clo-md-6">{{card.cardExpiryDate}}</label>
+       </div>
+    </div>
+
+    <div class="row col-md-12 form-group">
+        <div style="text-align: right;" class="col-md-4">
+         <label  class="clo-md-6"><b>حد الشراء :</b> </label> 
+         <label style="padding-right: 3%;" class="clo-md-6">{{card.dailyPosLimit}}</label>
+        </div>
+     
+        <div style="padding-left: 17%; text-align: center; " class="col-md-4">
+         <label   class="clo-md-6"><b>العمله :</b> </label> 
+         <label style="padding-right: 3%;" class="clo-md-6">{{card.currency}}</label>
+        </div>
+
+        <div style="padding-left:18%;" class="col-md-4">
+            <label class="clo-md-6"><b>رئيسي/فرعي :</b> </label> 
+            <label style="padding-right: 3%;" class="clo-md-6">{{majorOrSub}}</label>
+           </div>
+           
+        </div>
+
+
+<div *ngIf="Role != 'viwer'">
+    <hr style="width: 80%;">
+<label style="margin-left: 80%;" class="col-md-2"><b>اختر نوع العملية</b></label>
+ <form [formGroup]="actionsForm" (ngSubmit)="onFormSubmit(actionsForm.value)" style="margin-top: 5%;">
+            <div style="padding-right: 10%;" class="col-md-12 row">
+    <select formControlName="actionOptions" class="form-control col-md-4">
+        <option  value="1">اعاده طباعة البطاقة</option>
+        <option value="2">تجديد البطاقة</option>
+        <option value="3">طباعة الرقم السري</option>
+        <option value="4">اغلاق البطاقة</option>
+        <option value="5">الغاء البطاقة</option>
+    </select>
+    
+    <button type="submit" class="btn btn-primary col-md-2" style="border-radius: 1% 1%; margin-right: 5%; width: 5%; background-color:#006D38 ; color: white;">تأكيد</button>
+  </div>
+</form>
+
+</div>
+
+</div>

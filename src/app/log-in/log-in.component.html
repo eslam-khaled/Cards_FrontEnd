@@ -1,0 +1,33 @@
+ <div class="BodyBackGround">
+<div class="container">
+	<div  class="d-flex justify-content-center h-100">
+		<div class="card col-md-7 BorderRadius">
+			<div class="card-header">
+				<h3 style="text-align: center;">تسجيل الدخول</h3>
+			</div>
+			<div style="position: relative; left: 5rem; right: 5rem;" class="card-body col-md-9">
+				<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+					<div class="input-group form-group">
+						<input type="text" formControlName="Email" style="text-align:right;" class="form-control BorderRadius" placeholder="البريد الالكتروني">						
+					</div>
+					<div class="input-group form-group">
+						<input type="password" formControlName="Password" style="text-align:right;" class="form-control BorderRadius" placeholder="كلمة السر">
+					</div>
+					<div class="row align-items-center remember">
+						<input  type="checkbox">تذكرني
+					</div>
+					<div class="form-group">
+						<button type="submit"  class="btn float-right login_btn BorderRadius">دخول</button>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center">
+					<a href="#">نسيت كلمة السر؟</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+ 

@@ -1,0 +1,33 @@
+<div dir="rtl">
+<nav class="navbar navbar-expand-lg" style="height: 100%">
+  <img
+    routerLink=""
+    class="d-flex align-self-center mr-3"
+    style="height: 40px;cursor: pointer;"
+    src="../../assets/images/bcd_logo_main.svg"
+    alt="Generic placeholder image"
+  />
+  <ul
+    [className]="
+      languageCheck == 'EN'
+        ? ' navbar-nav ml-auto MobileContent MobileContentMarginLeft'
+        : ' navbar-nav ml-auto MobileContent MobileContentMarginRight'
+               "
+  >
+
+<li style="position: absolute; left: 10rem; bottom: 0.8rem;">
+  <a routerLink="log-in" (click)="Logout()" class="nav-link">
+    <b style="color: black;" class="caret">تسجيل الخروج</b>
+  </a>
+</li>
+
+<li *ngIf="Role == 'admin'" style="position: absolute; left: 18rem; bottom: 0.8rem;">
+  <a routerLink="userRoles" class="nav-link">
+    <b style="color: black;" class="caret">المستخدمين</b>
+  </a>
+</li>
+
+  
+  </ul>
+</nav>
+</div>

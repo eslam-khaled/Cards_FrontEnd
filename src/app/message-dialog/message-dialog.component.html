@@ -1,0 +1,13 @@
+<h1 mat-dialog-title align="center"></h1>
+<div mat-dialog-content align="center" style="margin: 10px">
+  <h5 class="spaceline">{{data.message}}</h5>
+</div>
+<div mat-dialog-actions align="center" style="width: 300px;">
+  <input
+    type="submit"
+    style="background: #0f6f5d ;color: #fff;"
+    class="btn"
+    value="اغلاق"
+    (click)="close()"
+  />
+</div>

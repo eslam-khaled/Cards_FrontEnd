@@ -1,0 +1,37 @@
+            
+
+            <div class="form-control container" dir="rtl" style="margin-top: 7%;">
+              <div dir="ltr" class="row" style="margin-top: 1%;">
+            <button *ngIf="Role != 'viwer'" type="button" (click)="GoToIssueNewCard()" class="btn btnBackground" style="position: relative; left: 1.8rem; color: white; width: 15%;"><b>اصدار بطاقة جديدة</b></button>
+          <h5  style="position: absolute; left: 45%; right: 45%;">بطاقات الزبون</h5>
+          </div>
+
+          <table style="margin-top: 2%;"  class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">رقم البطاقة</th>
+                <th scope="col">رئيسي/فرعي</th>
+                <th scope="col">الاسم علي البطاقة</th>
+                <th scope="col">حالة البطاقة</th>
+                <th scope="col">تاريخ الاصدار</th>
+                <th scope="col">تاريخ الانتهاء</th>
+                <th scope="col"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cards of cardDetailsForm; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{cardDetailsForm[i].cardNumber}}</td>
+                <td>{{cardDetailsForm[i].majorOrSub}}</td>
+                <td>{{cardDetailsForm[i].firstNameOnCard}} {{cardDetailsForm[i].secondNameOnCard}} {{cardDetailsForm[i].familyNameOnCard}}</td>
+                <td>{{cardDetailsForm[i].cardStatus}}</td>
+                <td>{{cardDetailsForm[i].startDate}}</td>
+                <td>{{cardDetailsForm[i].cardExpiryDate}}</td>
+                <td>
+                  <a (click)="GoToCardDetails(cardDetailsForm[i].id)" style="color: white;" class="btn btnBackground">عرض البيانات</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>

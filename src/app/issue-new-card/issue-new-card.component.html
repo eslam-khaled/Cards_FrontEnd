@@ -1,0 +1,116 @@
+
+<h6 align="right" style="margin: 0% 8% 1%;">إدخل البيانات التالية</h6>
+<form [formGroup]="NewCardForm" (ngSubmit)="onFormSubmit(NewCardForm.value)" style="margin-top: 1rem;">
+<div dir="rtl" class="form-control container" align="right">
+
+    <div class="row" style="margin-bottom: 2rem;">
+
+  <div class="col-md-4 form-group">
+    <label class="col-md-4 labelAsterisk"><b>نوع البطاقة</b></label>
+    <select formControlName="cardType" (change)="ChangeCardType(NewCardForm.value)" class="form-control col-md-8">
+        <option  value="1">ماستر كارد</option>
+        <option value="2">فيزا</option>
+    </select>
+  </div>
+
+  <div class="col-md-6 form-group" style="width: 70%;">   
+    <label class="col-md-3 labelAsterisk"><b>رئيسي/فرعي</b></label>
+
+    <select formControlName="majorOrSub" class="form-control col-md-6">
+        <option  value="1">رئيسي</option>
+        <option value="2">فرعي</option>
+    </select>
+  </div>
+
+  <div class="BannerDiv">
+    <div style="margin: 0.5rem 2rem;">
+    <div class="row">
+      <label>حد الشراء اليومي :</label>
+      <label>{{onLevelVisa.dailyCashLimit}}</label>
+    </div>
+
+    <div class="row">
+      <label>حد السحب اليومي :</label>
+      <label>{{onLevelVisa.dailyPosLimit}}</label>
+    </div>
+
+    <div class="row">
+      <label>الرسوم :</label>
+      <label>{{onLevelVisa.issueFee}}</label>
+    </div>
+
+    <div class="row">
+      <label>المميزات :</label>
+      <label style="position: absolute; padding-right: 70px; margin-bottom: 100px;" >{{onLevelVisa.cardBenefit}}</label>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div style="margin-right: -1%;" class="col-md-6 form-group"> 
+    <label class="col-md-3 labelAsterisk"><b>درجة البطاقة</b></label>
+    <select *ngIf="cardLevelMasterView" (change)="onMasterLevelChange($event.target.selectedIndex)" formControlName="cardLevel"  class="form-control col-md-6">
+      <option  *ngFor="let item of MasterLevels; let i=index;"  value="{{MasterLevels[i].id}}">{{MasterLevels[i].cardLevel}}</option>
+      </select>
+
+     <select  *ngIf="cardLevelVisaView" (change)="onVisaLevelChange($event.target.selectedIndex)" formControlName="cardLevel"  class="form-control col-md-6">
+       <option  *ngFor="let item of VisaLevels; let i=index;" value="{{VisaLevels[i].id}}">{{VisaLevels[i].cardLevel}}</option>
+     </select>
+    
+  </div>
+
+
+<hr style="width: 800px;">
+<label class="col-md-6 labelAsterisk"><b>الاسم علي البطاقة</b></label>  
+  <div class="row">
+    
+  <div class="form-group col-md-4 form-group"> 
+    <input maxlength="20" onkeypress="
+    if(!(event.charCode>=97 && event.charCode < 123)
+    &&!(event.charCode>=65 && event.charCode < 91 ||(event.charCode==32)))return false;"
+     type="text" class="form-control col-md-11" formControlName="firstNameOnCard" placeholder="الاسم الأول">
+  </div>
+
+
+  <div class="form-group col-md-4 form-group">
+    <input maxlength="1"
+    onkeypress="
+   if(!(event.charCode>=97 && event.charCode < 123)
+   &&!(event.charCode>=65 && event.charCode < 91))return false;"
+    type="text" class="form-control col-md-11" formControlName="secondNameOnCard" placeholder="الاسم الثاني - حرف واحد فقط">
+  </div>
+
+    <div style="margin-right: -0.2%;" class="form-group col-md-4 form-group">     
+        <input maxlength="20"
+        onkeypress="
+        if(!(event.charCode>=97 && event.charCode < 123)
+        &&!(event.charCode>=65 && event.charCode < 91||(event.charCode==32)))return false;"
+        type="text" class="form-control col-md-11" formControlName="familyNameOnCard" placeholder="اسم العائله">
+      </div>
+
+</div>
+<hr style="width: 800px;">
+  <div style="margin-right: -1%;" class="col-md-6 form-group">
+    <label class="col-md-3 labelAsterisk"><b>فرع الاستلام</b></label>
+    <select formControlName="deliveryBranch" class="form-control col-md-7">
+        <option  value="1">فرع 1</option>
+        <option value="2">فرع 2</option>
+        <option value="3">فرع 3</option>
+    </select>
+  </div>
+
+  <label class="col-md-3"><b>تعليق</b></label>
+  <div class="row col-md-12">
+
+  <div  class="col-md-5">
+  <textarea class="col-md-5" formControlName="comment" style="border-radius: 3% 3%; max-width: 100%;" placeholder="اكتب تعليق" ></textarea>
+</div>
+
+<div align="left" class="col-md-6">
+  <button type="submit" class="btn btnBackground col-md-5" style="color: white; border-radius: 0;"><b>تأكيد</b></button>
+  </div>
+
+</div>
+</div>
+</form>
+

@@ -1,0 +1,29 @@
+<form class="form-control" style="padding-left: 2em; padding-right: 2em; " dir="rtl">
+    <button type="button" (click)="creatPrintFile()" class="btn btnBackground" style="position: relative; left: 1.8rem; color: white; width: 15%;"><b>اصدار ملف طباعه</b></button>
+
+    <div class="row col-md-12">
+    <h3 style="position: absolute; margin-right: 2em;">قائمة البطاقات الجديدة</h3>
+    <a routerLink="/create-print-request" style="margin-right:68em; margin-top: 2em; text-decoration: underline;">قائمة طلبات الطباعة الحاليه</a>
+  </div>
+
+<table style="margin-top: 4em; background-color: honeydew;"  class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">رقم البطاقة</th>
+        <th scope="col">الاسم علي البطاقة</th>
+        <th scope="col">تاريخ الانشاء </th>
+        <th scope="col">تاريخ الانتهاء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cards of requestsList; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{requestsList[i].cardNumber}}</td>
+        <td>{{requestsList[i].firstNameOnCard}} {{requestsList[i].secondNameOnCard}} {{requestsList[i].familyNameOnCard}}</td>
+        <td>{{requestsList[i].startDate}}</td>
+        <td>{{requestsList[i].cardExpiryDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</form>

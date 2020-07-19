@@ -1,0 +1,44 @@
+<div dir="rtl" class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)">
+
+        <div class="form-group row col-md-6">
+            <label class="labelAsterisk col-md-4"><b>الصلاحيات</b></label>
+            <select formControlName="userRoles" class="form-control col-md-4">
+                <option  value="1">Admin</option>
+                <option value="2">Viewer</option>
+                <option value="3">System Employee</option>
+            </select>
+          </div>
+
+          <div  class="form-group row">
+            <label class="col-md-2 labelAsterisk"><b>الاسم</b></label>
+            <input  maxlength="20"
+        onkeypress="
+        if(!(event.charCode>=97 && event.charCode < 123)
+        &&!(event.charCode>=65 && event.charCode < 91||(event.charCode==32)))return false;"
+         type="text" class="form-control col-md-4" formControlName="userName" placeholder="الاسم">
+          </div>
+
+          <!-- onkeypress="
+        if(!(event.charCode>=97 && event.charCode < 123)
+        &&!(event.charCode>=65 && event.charCode < 91||(event.charCode==32)))return false;" -->
+
+          <div  class="form-group row">
+            <label class="col-md-2 labelAsterisk"><b>الايميل</b></label>
+            <input  maxlength="20" 
+            
+        type="text" class="form-control col-md-4" formControlName="Email" placeholder="الايميل">
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 labelAsterisk"><b>كلمه السر</b></label>
+            <input maxlength="26"
+            onkeypress="
+        if((event.charCode>=96 && event.charCode < 106)
+        &&!(event.charCode>=65 && event.charCode < 91||(event.charCode==32)))return false;"
+         type="password" class="form-control col-md-4" formControlName="password" placeholder="كلمه السر">
+          </div>
+
+          <button type="submit" class="btn btnBackground" style="margin-left: 70% ;color: white; border-radius: 0; position: relative;"><b>انشاء</b></button>
+    </form>
+</div>
